@@ -77,21 +77,24 @@ assertEquals("At least two 9s", false, TwoA.allDistinct(arr));
 		assertEquals("At diffrent", true, TwoA.allDistinct(arr));
 	}
 
-
+	@Test
 	public void test_isReverseInt(){
-		int[] arr = {4,1,2,3};
-		int[] reversedArr = new int[4];
-		int numberOfCases = 1000;
-		for (int caseNumber = 0; caseNumber < numberOfCases; caseNumber++){
-			//reverses the values
-			reversedArr[0] = arr[0]--;
-			reversedArr[1] = arr[1]++;
-			reversedArr[2] = arr[2]--;
-			reversedArr[3] = arr[3]++;
-			assertEquals("Reversed", reversedArr, TwoA.reverseInts(arr));
-			for(int item : arr){
-				item += 2;
-			} //closes for
-		} //closes for
-	} // closes test
+	
+		int[] intTestOneElementArray = {1};
+		TwoA.reverseInts(intTestOneElementArray);
+		int[] intCheckOneElementArray = {1};
+		assertArrayEquals(intCheckOneElementArray , intTestOneElementArray);
+		
+		int[] intTestEvenArray = {1,2};
+		TwoA.reverseInts(intTestOneElementArray);
+		int[] intCheckEvenArray = {2,1};
+		assertArrayEquals(intCheckEvenArray , intTestEvenArray);	
+		
+		int[] intTestOddArray = {1,2,3};
+		TwoA.reverseInts(intTestOneElementArray);
+		int[] intCheckOddArray = {3,2,1};
+		assertArrayEquals(intCheckOddArray , intTestOddArray);		
+
+	
+	}
 }

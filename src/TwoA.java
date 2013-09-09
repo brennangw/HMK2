@@ -89,4 +89,14 @@ public class TwoA {
 		}
 		return false;
 	}
+	public static void reverseInts(int arr[]){
+	int holder;
+	for(int i = 0; i < ((arr.length / 2) + 1); i++)	{
+		holder = arr[1];
+		arr[i] = arr[(arr.length - 1)  - i];
+		arr[(arr.length - 1) - i] = holder;
+		}
+	}
+		
 }
+
