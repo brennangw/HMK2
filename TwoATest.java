@@ -38,19 +38,87 @@ public class TwoATest {
 	}
 	
 	public void test_isOddProd(){
-	
+		int left = -1; //changing odd ints that will multiply to odd
+		int right = -3; //changing odd ints that will multiply to odd
+		int arrLength = 7;
+		int testArr[arrLength]; 
+		int currentLeftPos = 0; 
+		int currentRightPos = 1;
+		int arr[currentLeftPos] = left;
+		int arr[currentRightPos] = right;
+		for(i=2; i<=arrLength , i++){ // fill the array with 2 except for where right and left are
+			arr[i] = 2;
+		} //closes the for
+		int moveCount = 1;
+		int iterations = 5;
+		/* The loop moves the left and the right (the ints) to the right in the array and adds two to their 
+		 * value each time. It stops after 5 iterations of this. Each test should be true.
+		 */
+		while(moveCount<=iterations){ 
+			assertEquals("Find the pair of odds", true, TwoA.isOddProd(testArr));
+			left++;
+			right++;
+			testArr[currentLeftPos] = left;
+			testArr[currentRightPos] = right;
+			assertEquals("No odds", false, TwoA.isOddProd(testArr));
+			left++;
+			right++;
+			testArr[currentLeftPos] = 2;
+			testArr[currentRightPos] = 2;
+			currentLeftPos++;
+			currentRightPos++;
+			testArr[currentLeftPos] = left;
+			testArr[currentRightPos] = right;
+			moveCount++;
+		} //closes the while
+			
 	
 	}
+	
+
+	
+	
 	public void test_isOddSumTo(){
+		//Special Cases
+		assertEquals("Find the pair of odds", false, TwoA.isOddSumTo(0));
+		assertEquals("Find the pair of odds", false, TwoA.isOddSumTo(2));
+		assertEquals("Find the pair of odds", 0, TwoA.isOddSumTo(-5));
+		//Trues
+		int sum = 0
+		for(a=1; a<11111; a += 2;){
+				assertEquals("Find the pair of odds", sum, TwoA.isOddSumTo(a))
+				sum += a;
+		}//for
+	}
 	
 		
 	}
 	public void test_isAllDistinct(){
+	int arr = [9,9,9,9,9]
+	for(i=0; i<5; i++){
+		assertEquals("At least two 9s", false, TwoA.isAllDistinct(arr));
+		int arr[i] = i;
+	}
+	assertEquals("At diffrent", true, TwoA.isAllDistinct(arr));	
+	}
 	
 		
-	}
 	public void test_isReverseInt(){
-	
+	int arr = [4,1,2,3];
+	int reversedArr[];
+	int numberOfCases = 1000;
+	for (int caseNumber = 0; caseNumber < numberOfCases; caseNumber++){
+		
+		//reverses the values
+		reversedArr[0] = arr[0]--;
+		reversedArr[1] = arr[1]++;
+		reversedArr[2] = arr[2]--;
+		reversedArr[3] = arr[3]++;
+		assertEquals("Reversed", reversedArr, TwoA.isOddSumTo(arr));
+		for(int item : arr){
+			item += 2;
+		}
+	}
 		
 	}	
 }
