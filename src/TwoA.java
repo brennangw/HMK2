@@ -67,27 +67,41 @@ public class TwoA {
 		return containsMultiOdds;
 	}
 
+	
+	
+	
+	
 	public static boolean allDistinct(int ints[]){
-
+		int lenToCheck = ints.length;
 		for (int i : ints){
-			if(TwoA.intInArr(i, ints))
-			{
-
+			lenToCheck--; // The number of elements the current element must be compared to
+			int currentLenToCheck = lenToCheck;
+			while(currentLenToCheck != 0){
+				if (ints[i] == ints[i + currentLenToCheck]){ // Are you the same as this element?
+					return false;
+				}
+				currentLenToCheck--; //To avoid redundancy, we make sure that after we test a against
+				// b,c,d, and e, but not b against a or b.
 			}
-
 		}
 		return true;
 	}
+	
+	
+	
+	
 	//checks to see if the int is in the array 
-	public static boolean intInArr(int num, int ints[]){
-		boolean isAnotherHere = false;
-		for (int i : ints){
-			if(i == num){
-				isAnotherHere = true;
-			}
-		}
-		return isAnotherHere;
-	}
+//	public static boolean intInArr(int num, int ints[]){
+//		boolean isAnotherHere = false;
+
+//		for (int i : ints){
+//			
+//			if(i == num){
+//				isAnotherHere = true;
+//			}
+//		}
+//		return isAnotherHere;
+//	}
 
 	public static Object reverseInts(int[] arr) {
 		// TODO Auto-generated method stub
