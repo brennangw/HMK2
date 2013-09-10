@@ -69,32 +69,51 @@ public class TwoATest {
 	@Test
 	public void test_isAllDistinct(){
 		int[] arr = {9,8,7,6,5};
-		/*
-for(int i = 0; i < 4; i++){
-arr[i] = i;
-assertEquals("At least two 9s", false, TwoA.allDistinct(arr));
-}*/
+
+
+		int trials = 1000000;
+		int trialCount;
+		for (trialCount = 0; trialCount < trials; trialCount++){
+			assertEquals("At diffrent", true, TwoA.allDistinct(arr));
+			for (int element : arr){
+				element++;	
+			}
+
+		}
 		assertEquals("At diffrent", true, TwoA.allDistinct(arr));
+
+		int[] arrSame = {9,9,9,9,9};
+
+		for (trialCount = 0; trialCount < trials; trialCount++){
+			assertEquals("At diffrent", false, TwoA.allDistinct(arrSame));
+			for (int element : arrSame){
+				element++;	
+			}
+
+		}
+		assertEquals("At diffrent", false, TwoA.allDistinct(arrSame));
+
+
 	}
 
 	@Test
 	public void test_isReverseInt(){
-	
+
 		int[] intTestOneElementArray = {1};
 		TwoA.reverseInts(intTestOneElementArray);
 		int[] intCheckOneElementArray = {1};
 		assertArrayEquals(intCheckOneElementArray , intTestOneElementArray);
-		
-		int[] intTestEvenArray = {1,2};
-		TwoA.reverseInts(intTestOneElementArray);
-		int[] intCheckEvenArray = {2,1};
+
+		int[] intTestEvenArray = {4,5};
+		TwoA.reverseInts(intTestEvenArray);
+		int[] intCheckEvenArray = {5,4};
 		assertArrayEquals(intCheckEvenArray , intTestEvenArray);	
-		
+
 		int[] intTestOddArray = {1,2,3};
-		TwoA.reverseInts(intTestOneElementArray);
+		TwoA.reverseInts(intTestOddArray);
 		int[] intCheckOddArray = {3,2,1};
 		assertArrayEquals(intCheckOddArray , intTestOddArray);		
 
-	
+
 	}
 }

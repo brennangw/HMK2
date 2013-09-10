@@ -90,13 +90,27 @@ public class TwoA {
 		return false;
 	}
 	public static void reverseInts(int arr[]){
-	int holder;
-	for(int i = 0; i < ((arr.length / 2) + 1); i++)	{
-		holder = arr[1];
-		arr[i] = arr[(arr.length - 1)  - i];
-		arr[(arr.length - 1) - i] = holder;
+		int arrLength = arr.length;
+		System.out.println("arr length is:" + arrLength);
+		int[] reverse = new int[arrLength];
+		int reversePos;
+
+		//fill reverse
+		for(int i=0; i<arrLength; i++){
+			reversePos = (arrLength -1) - i;
+			reverse[i] = arr[reversePos];
+			System.out.println(reverse[i]);
 		}
+
+		for(int i=0; i<arrLength; i++){
+			arr[i] = reverse[i];
+		}
+
+		//change arr
+
+
+
 	}
-		
+
 }
 
